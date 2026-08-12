@@ -29,7 +29,7 @@ const app = (
                 element: <ProductsPage />,
                 children: [
                     {
-                        path: '/:id',
+                        path: ':productId',
                         element: <ProductDetailsPage />
                     }
                 ]
