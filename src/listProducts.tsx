@@ -1,13 +1,16 @@
-import {useState} from "react";
-interface Product {
-    id: number;
-    title: string;
-}
+import {useEffect, useState} from "react";
+
 export function ListProducts() {
 
-    const [products, setProducts] = useState<Product[]>([
-        {id: 1, title: "my product 1"},
-        {id: 2, title: "my other product"}])
+    const [products, setProducts] = useState<Product[]>([])
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then((json) => {
+                setProducts(json.products)
+            });
+    }, []);
 
     return <div>
         {
@@ -24,3 +27,51 @@ interface MyChildComponentProps {
 function MyChildComponent({product}: MyChildComponentProps) {
     return <div>the product is: {product?.title}</div>
 }
+
+
+export interface Product {
+    id: number
+    title: string
+    description: string
+    category: string
+    price: number
+    discountPercentage: number
+    rating: number
+    stock: number
+    tags: string[]
+    brand: string
+    sku: string
+    weight: number
+    dimensions: Dimensions
+    warrantyInformation: string
+    shippingInformation: string
+    availabilityStatus: string
+    reviews: Review[]
+    returnPolicy: string
+    minimumOrderQuantity: number
+    meta: Meta
+    images: string[]
+    thumbnail: string
+}
+
+export interface Dimensions {
+    width: number
+    height: number
+    depth: number
+}
+
+export interface Review {
+    rating: number
+    comment: string
+    date: string
+    reviewerName: string
+    reviewerEmail: string
+}
+
+export interface Meta {
+    createdAt: string
+    updatedAt: string
+    barcode: string
+    qrCode: string
+}
+
