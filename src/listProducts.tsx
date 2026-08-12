@@ -12,20 +12,30 @@ export function ListProducts() {
             });
     }, []);
 
+    function removeProduct(id: number) {
+        const duplicate = [...products];
+        const filteredArray = duplicate.filter(p => p.id != id)
+        setProducts(filteredArray)
+    }
+
+
     return <div>
         {
             products.map(p => {
-                return <MyChildComponent key={p.id} product={p}/>
+                return <MyChildComponent key={p.id} product={p} removeProduct={removeProduct}/>
             })
         }
     </div>;
 }
 
 interface MyChildComponentProps {
-    product?: Product
+    product: Product,
+    removeProduct: (id: number) => void
 }
-function MyChildComponent({product}: MyChildComponentProps) {
-    return <div>the product is: {product?.title}</div>
+
+function MyChildComponent({product, removeProduct}: MyChildComponentProps) {
+
+    return <div>the product is: {product?.title} <button onClick={() => removeProduct(product.id)}>delete this stuff</button></div>
 }
 
 
