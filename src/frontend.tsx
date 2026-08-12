@@ -5,20 +5,21 @@
  * It is included in `src/index.html`.
  */
 
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import {createRoot} from "react-dom/client";
+import {ListProducts} from "@/listProducts.tsx";
 
 
 const elem = document.getElementById("root")!;
 
-function Landing() {
-    return <div>Welcome</div>;
-}
 
 const app = (
-  <Landing />
 
+    <>
+      <ListProducts/>
+    </>
 );
+
+
 
 if (import.meta.hot) {
   // With hot module reloading, `import.meta.hot.data` is persisted.
@@ -28,5 +29,4 @@ if (import.meta.hot) {
   // The hot module reloading API is not available in production.
   createRoot(elem).render(app);
 }
-
 
