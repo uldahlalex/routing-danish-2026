@@ -8,6 +8,8 @@
 import {createRoot} from "react-dom/client";
 import {ListProducts} from "@/listProducts.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router";
+import {LandingPage} from "@/scratch.tsx";
+import {ProductsPage} from "@/ProductsPage.tsx";
 
 
 const elem = document.getElementById("root")!;
@@ -20,11 +22,11 @@ const app = (
 
             {
                 path: '/',
-                element: <div>hello world</div>
+                element: <LandingPage />
             },
             {
-                path: '/products',
-                element: <div>This is the products page</div>
+                path: "/products",
+                element: <ProductsPage />
             }
 
         ])} />
