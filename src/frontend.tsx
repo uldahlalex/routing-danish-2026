@@ -6,10 +6,10 @@
  */
 
 import {createRoot} from "react-dom/client";
-import {ListProducts} from "@/listProducts.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router";
 import {LandingPage} from "@/scratch.tsx";
 import {ProductsPage} from "@/ProductsPage.tsx";
+import {ProductDetailsPage} from "@/productDetailsPage.tsx";
 
 
 const elem = document.getElementById("root")!;
@@ -26,7 +26,13 @@ const app = (
             },
             {
                 path: "/products",
-                element: <ProductsPage />
+                element: <ProductsPage />,
+                children: [
+                    {
+                        path: '/:id',
+                        element: <ProductDetailsPage />
+                    }
+                ]
             }
 
         ])} />
