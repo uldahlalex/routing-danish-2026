@@ -7,9 +7,9 @@
 
 import {createRoot} from "react-dom/client";
 import {createBrowserRouter, RouterProvider} from "react-router";
-import {LandingPage} from "@/scratch.tsx";
-import {ProductsPage} from "@/ProductsPage.tsx";
-import {ProductDetailsPage} from "@/productDetailsPage.tsx";
+import {ProductsPage} from "@/products/ProductsPage.tsx";
+import {ProductDetailsPage} from "@/products/id/productDetailsPage.tsx";
+import {LandingPage} from "@/LandingPage.tsx";
 
 
 const elem = document.getElementById("root")!;

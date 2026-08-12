@@ -11,11 +11,8 @@ export function LandingPage() {
 
         welcome to the landing page
 
-    <button onClick={() => {
-        navigate('/products')
-    }}>Go to products</button>
-
+        <button onClick={() => {
+            navigate('/products')
+        }}>Go to products</button>
     </div>
 }
-
-
