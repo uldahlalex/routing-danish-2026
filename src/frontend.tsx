@@ -7,6 +7,7 @@
 
 import {createRoot} from "react-dom/client";
 import {ListProducts} from "@/listProducts.tsx";
+import {createBrowserRouter, RouterProvider} from "react-router";
 
 
 const elem = document.getElementById("root")!;
@@ -15,7 +16,18 @@ const elem = document.getElementById("root")!;
 const app = (
 
     <>
-      <ListProducts/>
+        <RouterProvider router={createBrowserRouter([
+
+            {
+                path: '/',
+                element: <div>hello world</div>
+            },
+            {
+                path: '/products',
+                element: <div>This is the products page</div>
+            }
+
+        ])} />
     </>
 );
 
